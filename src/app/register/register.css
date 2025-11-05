@@ -1,0 +1,106 @@
+/* === General Layout === */
+.container {
+    max-width: 600px;
+    background-color: #ffffff;
+    padding: 2rem;
+    margin-top: 4rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* === Typography === */
+h2 {
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 0.5rem;
+}
+
+p {
+    color: #6c757d;
+    font-size: 1rem;
+}
+
+/* === Form Fields === */
+form .form-label {
+    font-weight: 500;
+    color: #34495e;
+}
+
+form .form-control {
+    border-radius: 0.5rem;
+    border: 1px solid #ced4da;
+    padding: 0.75rem;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+form .form-control:focus {
+    border-color: #198754;
+    /* Bootstrap success green */
+    box-shadow: 0 0 0 0.2rem rgba(25, 135, 84, 0.25);
+}
+
+/* === Submit Button === */
+button[type="submit"] {
+    width: 100%;
+    padding: 0.75rem;
+    font-weight: 600;
+    border-radius: 0.5rem;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #157347;
+    transform: translateY(-1px);
+}
+
+/* === Submitted Data Box === */
+.alert {
+    border-radius: 0.75rem;
+    border: none;
+    background-color: #e8f5e9;
+    /* light green background */
+    color: #1b5e20;
+    padding: 1rem 1.25rem;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.alert strong {
+    color: #145a32;
+}
+
+/* === Responsive Tweaks === */
+@media (max-width: 576px) {
+    .container {
+        padding: 1.5rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+}
+
+.bcak-to-login-link {
+    display: block;
+    margin-top: 1rem;
+    text-align: center;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+
+
+/* unvisited link */
+a:link {
+    color: rgb(28, 89, 232);
+}
+
+/* visited link */
+a:visited {
+    color: rgb(28, 89, 232);
+}
+
+/* mouse over link */
+a:hover {
+    color: rgb(0, 13, 255);
+    font-weight: bold;
+}

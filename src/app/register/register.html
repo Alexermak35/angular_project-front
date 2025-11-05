@@ -1,0 +1,48 @@
+<div class="container mt-5">
+    <h2>Sign Up Page</h2>
+    <p>Please enter your information below:</p>
+
+
+    <form class="mt-4" (ngSubmit)="onSubmit()" #aboutForm="ngForm">
+        <div class="mb-3">
+            <label for="name" class="form-label">First Name</label>
+            <input type="text" id="name" name="name" [(ngModel)]="formData.name" class="form-control"
+                placeholder="Enter your first name" required />
+        </div>
+
+        <div class="mb-3">
+            <label for="surname" class="form-label">Surname</label>
+            <input type="text" id="surname" name="surname" [(ngModel)]="formData.surname" class="form-control"
+                placeholder="Enter your surname" required />
+        </div>
+
+        <div class="mb-3">
+            <label for="email" class="form-label">Email address</label>
+            <input type="email" id="email" name="email" [(ngModel)]="formData.email" class="form-control"
+                placeholder="Enter your email" required />
+        </div>
+
+        <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input [type]="showPassword ? 'text' : 'password'" id="password" name="password"
+                [(ngModel)]="formData.password" class="form-control" placeholder="Enter your password" required />
+
+            <button type="button" (click)="showPassword = !showPassword"
+                class="btn btn-sm btn-outline-secondary position-absolute top-50 end-0 translate-middle-y me-2">
+                {{ showPassword ? 'Hide' : 'Show' }}
+            </button>
+        </div>
+
+        <button type="submit" class="btn btn-success">Sign Up</button>
+
+        <a href="/login" class="bcak-to-login-link"> Already have an account?</a>
+
+    </form>
+    <div *ngIf="submitted" class="alert alert-info mt-4">
+        <strong>Submitted Data:</strong><br />
+        Name: {{ submittedData.name }}<br />
+        Surname: {{ submittedData.surname }}<br />
+        Email: {{ submittedData.email }}<br />
+        Password: {{ submittedData.password }}
+    </div>
+</div>

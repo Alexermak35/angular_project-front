@@ -1,0 +1,57 @@
+<div class="container mt-5">
+    <h2>Login Page</h2>
+    <p>Please enter your information below:</p>
+
+
+    <form class="mt-4" (ngSubmit)="onSubmit()" #aboutForm="ngForm">
+        <!--<div class="mb-3">
+            <label for="name" class="form-label">First Name</label>
+            <input type="text" id="name" name="name" [(ngModel)]="formData.name" class="form-control"
+                placeholder="Enter your first name" required />
+        </div>
+
+        <div class="mb-3">
+            <label for="surname" class="form-label">Surname</label>
+            <input type="text" id="surname" name="surname" [(ngModel)]="formData.surname" class="form-control"
+                placeholder="Enter your surname" required />
+        </div>   -->
+
+        <div class="mb-3">
+            <label for="email" class="form-label">Email address</label>
+            <input type="email" id="email" name="email" [(ngModel)]="formData.email" class="form-control"
+                placeholder="Enter your email" required />
+        </div>
+
+        <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input [type]="showPassword ? 'text' : 'password'" id="password" name="password"
+                [(ngModel)]="formData.password" class="form-control" placeholder="Enter your password" required />
+
+            <button type="button" (click)="showPassword = !showPassword"
+                class="btn btn-sm btn-outline-secondary position-absolute top-50 end-0 translate-middle-y me-2">
+                {{ showPassword ? 'Hide' : 'Show' }}
+            </button>
+        </div>
+
+        <button type="submit" class="btn btn-success">Log In</button>
+
+        <div class="relative my-6">
+            <hr class="border-gray-300" />
+            <span class="absolute left-1/2 -translate-x-1/2 -top-3 bg-white px-2 text-gray-500 text-sm">
+                or
+            </span>
+        </div>
+
+        <button type="button" class="btn btn-primary w-100 mb-2" [routerLink]="['/register']">
+            Create new account
+        </button>
+
+
+    </form>
+
+    <div *ngIf="submitted" class="alert alert-info mt-4">
+        <strong>Submitted Data:</strong><br />
+        Email: {{ submittedData.email }}<br />
+        Password: {{ submittedData.password }}
+    </div>
+</div>
