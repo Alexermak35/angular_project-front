@@ -14,4 +14,11 @@ export class AuthService {
         const body = { username, password };
         return this.http.post(`${this.baseUrl}/login`, body);
     }
+
+    signup(username: string, email: string, password: string): Observable<any> {
+        const body = { username, email, password };
+        return this.http.post(`${this.baseUrl}/`, body);
+
+
+    }
 }

@@ -14,8 +14,7 @@ import { AuthService } from '../auth.service';
 })
 export class LoginComponent {
   formData = {
-    name: '',
-    surname: '',
+    username: '',
     email: '',
     password: ''
   };

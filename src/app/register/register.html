@@ -3,18 +3,13 @@
     <p>Please enter your information below:</p>
 
 
-    <form class="mt-4" (ngSubmit)="onSubmit()" #aboutForm="ngForm">
+    <form class="mt-4" (ngSubmit)="onSignup()" #aboutForm="ngForm">
         <div class="mb-3">
-            <label for="name" class="form-label">First Name</label>
-            <input type="text" id="name" name="name" [(ngModel)]="formData.name" class="form-control"
-                placeholder="Enter your first name" required />
+            <label for="name" class="form-label">Username</label>
+            <input type="text" id="username" name="username" [(ngModel)]="formData.username" class="form-control"
+                placeholder="Enter your username" required />
         </div>
 
-        <div class="mb-3">
-            <label for="surname" class="form-label">Surname</label>
-            <input type="text" id="surname" name="surname" [(ngModel)]="formData.surname" class="form-control"
-                placeholder="Enter your surname" required />
-        </div>
 
         <div class="mb-3">
             <label for="email" class="form-label">Email address</label>
@@ -40,8 +35,7 @@
     </form>
     <div *ngIf="submitted" class="alert alert-info mt-4">
         <strong>Submitted Data:</strong><br />
-        Name: {{ submittedData.name }}<br />
-        Surname: {{ submittedData.surname }}<br />
+        Username: {{ submittedData.username }}<br />
         Email: {{ submittedData.email }}<br />
         Password: {{ submittedData.password }}
     </div>
