@@ -7,8 +7,8 @@
     <button type="button" class="btn btn-primary" [routerLink]="['/about']">
       About
     </button>
-    <button type="button" class="btn btn-primary" [routerLink]="['/login']">
-      Login
+    <button type="button" class="btn btn-primary" [routerLink]="(isLoggedIn$ | async) ? ['/profile'] : ['/login']">
+      {{(isLoggedIn$ | async) ? 'Profile' : 'Login'}}
     </button>
 
   </div>

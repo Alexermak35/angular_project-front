@@ -5,7 +5,7 @@ import { RouterLink } from "@angular/router";
 
 @Component({
   selector: 'app-about-component',
-  imports: [FormsModule, CommonModule, RouterLink],
+  imports: [FormsModule, CommonModule],
   templateUrl: './about-component.html',
   styleUrl: './about-component.css',
   standalone: true

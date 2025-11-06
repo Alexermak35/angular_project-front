@@ -25,9 +25,25 @@ export class LoginComponent {
 
   constructor(private auth: AuthService, private router: Router) { }
   onLogin() {
-    this.auth.login(this.formData.email, this.formData.password).subscribe({
-      next: (res) => console.log('✅ Login success:', res),
-      error: (err) => console.error('❌ Login failed:', err)
+    this.auth.login(this.formData.username, this.formData.password).subscribe({
+      next: (res) => {
+        console.log('✅ Login success:', res);
+        alert(`Welcome, ${res.username}!`);
+        this.auth.setLoggedIn(true);
+        console.log('Login status set to true', this.auth.isLoggedIn$);
+        this.router.navigate(['/home']); // or wherever you want
+      },
+      error: (err) => {
+        console.error('❌ Login failed:', err);
+        if (err.status === 400 && err.error?.message) {
+          alert(err.error.message);
+        }
+        else if (err.status === 401) {
+          alert('Invalid username or password');
+        } else {
+          alert('Server error. Please try again.');
+        }
+      }
     });
   }
 
