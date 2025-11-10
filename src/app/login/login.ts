@@ -28,9 +28,9 @@ export class LoginComponent {
     this.auth.login(this.formData.username, this.formData.password).subscribe({
       next: (res) => {
         console.log('✅ Login success:', res);
+        this.auth.setLoggedIn(true, res);
         alert(`Welcome, ${res.username}!`);
         this.auth.setLoggedIn(true);
-        console.log('Login status set to true', this.auth.isLoggedIn$);
         this.router.navigate(['/home']); // or wherever you want
       },
       error: (err) => {
