@@ -15,7 +15,7 @@ export class AuthService {
 
     login(username: string, password: string): Observable<any> {
         const body = { username, password };
-        return this.http.post(`${this.baseUrl}/login`, body, {
+        return this.http.post<any>(`${this.baseUrl}/login`, body, {
             headers: { 'Content-Type': 'application/json' }
         });
     }
@@ -27,6 +27,7 @@ export class AuthService {
             localStorage.setItem('sessionExpiry', expiry.toString());
             localStorage.setItem('loggedIn', 'true');
             if (userData) {
+                console.log('Storing user data:', userData);
                 localStorage.setItem('user', JSON.stringify(userData));
             }
 
@@ -34,6 +35,18 @@ export class AuthService {
             setTimeout(() => this.logout(), timeout);
         } else {
             this.logout();
+        }
+    }
+    getUserId(): number | null {
+        const userData = localStorage.getItem('user');
+        if (!userData) return null;
+
+        try {
+            const user = JSON.parse(userData);
+            return user.id || null;
+        } catch (e) {
+            console.error('Error parsing stored user:', e);
+            return null;
         }
     }
 
@@ -73,8 +86,6 @@ export class AuthService {
     }
     signup(username: string, email: string, password: string): Observable<any> {
         const body = { username, email, password };
-        return this.http.post(`${this.baseUrl}/`, body);
-
-
+        return this.http.post(`${this.baseUrl}/signup`, body);
     }
 }

@@ -49,7 +49,7 @@ button[type="submit"] {
 }
 
 button[type="submit"]:hover {
-    background-color: #157347;
+    background-color: #0c17b8;
     transform: translateY(-1px);
 }
 

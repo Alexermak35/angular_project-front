@@ -16,7 +16,8 @@ export class LoginComponent {
   formData = {
     username: '',
     email: '',
-    password: ''
+    password: '',
+
   };
   showPassword: boolean = false;
   submittedData: any = null;

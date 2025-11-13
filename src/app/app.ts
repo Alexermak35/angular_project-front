@@ -20,7 +20,6 @@ export class App {
       .subscribe(() => {
         if (!this.auth.hasValidSession()) {
           this.auth.logout();
-          //this.router.navigate(['/login']);
         }
       });
   }
