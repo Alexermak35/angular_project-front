@@ -1,1 +1,44 @@
-<p>home works!</p>
+<div class="max-w-7xl mx-auto px-6 py-10">
+
+    <h1 class="text-3xl font-semibold mb-8">Available Products</h1>
+
+    <!-- Show a message if no products exist -->
+    <div *ngIf="products.length === 0" class="text-gray-500 text-center py-16">
+        No products available.
+    </div>
+
+    <!-- Product cards -->
+    <div *ngIf="products.length > 0" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+
+        <div *ngFor="let product of products" class="bg-white rounded-xl shadow hover:shadow-xl transition p-5">
+            <!-- Product Image -->
+            <img [src]="product.imageUrl" alt="{{ product.name }}" class="w-full h-56 object-cover rounded-md" />
+
+            <!-- Product Name -->
+            <h2 class="text-xl font-semibold mt-4">
+                {{ product.name }}
+            </h2>
+
+            <!-- Product Description -->
+            <p class="text-gray-600 mt-2">
+                {{ product.description }}
+            </p>
+
+            <!-- Optional price -->
+            <p *ngIf="product.price" class="text-lg font-bold mt-3 text-indigo-600">
+                ${{ product.price }}
+            </p>
+
+            <!-- Optional button -->
+            <button class="mt-4 bg-indigo-600 text-white px-4 py-2 rounded-lg w-full hover:bg-indigo-700">
+                View Details
+            </button>
+        </div>
+
+    </div>
+
+
+    <footer class="mt-auto p-4 bg-indigo-700 text-white text-center">
+        &copy; 2025 SwiftCart. All rights reserved.
+    </footer>
+</div>

@@ -3,7 +3,7 @@ import { Router, RouterModule } from '@angular/router';
 import { AuthService } from '../auth.service';
 import { UserService } from '../user-service';
 import { FormsModule } from '@angular/forms';
-import { zip } from 'rxjs';
+
 
 @Component({
   selector: 'app-profile',
@@ -12,7 +12,11 @@ import { zip } from 'rxjs';
   styleUrl: './profile.css',
 })
 export class Profile {
+  constructor(private auth: AuthService, private userService: UserService, private router: Router) {
+    this.isLoggedIn$ = this.auth.isLoggedIn$;
+  }
 
+  isLoggedIn$;
 
   formData = {
     username: '',
@@ -28,9 +32,11 @@ export class Profile {
 
 
 
-
   ngOnInit() {
     const userData = localStorage.getItem('user');
+    if (!this.isLoggedIn$) {
+      this.router.navigate(['/login']);
+    }
     if (userData) {
       try {
         const user = JSON.parse(userData);
@@ -198,7 +204,7 @@ export class Profile {
     });
   }
 
-  constructor(private auth: AuthService, private userService: UserService, private router: Router) { }
+
   logout() {
     this.auth.logout();
     this.router.navigate(['/login']);

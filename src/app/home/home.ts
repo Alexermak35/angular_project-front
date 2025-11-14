@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { Product } from '../models/product';
 
 @Component({
   selector: 'app-home',
@@ -9,5 +10,6 @@ import { RouterModule } from '@angular/router';
   styleUrl: './home.css',
 })
 export class HomeComponent {
+  products: Product[] = [];
 
 }
